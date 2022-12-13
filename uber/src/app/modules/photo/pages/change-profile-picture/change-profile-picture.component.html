@@ -1,1 +1,34 @@
-<p>change-profile-picture works!</p>
+<section class="h-100 h-custom"  >
+    <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-lg-8 col-xl-6">
+    
+    <div class="change-img">
+        <div *ngIf="uploadedImage" >
+            <img [src]="imgSrc" class="pic">
+        </div>
+        <div class="upload-part">
+            <div class="btn btn-primary">
+                <label class="upload">
+                    <input type="file" accept="image/*" (change)="onImageUpload($event)">
+                    choose image
+                </label>
+            </div>
+            <div >
+                {{uploadedImage == undefined ? "no image choosed yet":uploadedImage.name}}
+            </div>
+        </div>
+        
+       
+        <br>
+        <input type="button" (click)="imageUploadAction()" value="save changes" [disabled]="!uploadedImage" class="btn btn-success">
+        
+        
+    </div>
+    <div *ngIf="errorMessage" class="text-danger">
+        {{ errorMessage }}
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>

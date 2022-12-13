@@ -17,10 +17,10 @@ export const userRoutes:Routes=[
         
     },
     
-    // {
-    //     path:"photo",
-    //     loadChildren: () =>
-    //       import("./../photo/photo.module").then((m) => m.PhotoModule)
-    // }
+    {
+        path:"photo",
+        loadChildren: () =>
+          import("./../photo/photo.module").then((m) => m.PhotoModule)
+    }
     
 ];
