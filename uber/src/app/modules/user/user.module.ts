@@ -6,13 +6,15 @@ import { userRoutes } from './user.routes';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PhotoModule } from '../photo/photo.module';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 
 
 @NgModule({
   declarations: [
     FormUserDataComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,

@@ -28,4 +28,13 @@ export class UserService {
     };
     return this.http.put<HttpResponse<UserData>>("/api/users/"+userData.id,userData, queryParams);
   }
+
+  changePassword(changePasswordReq:any, userId:number):Observable<HttpResponse<any>>{
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    return this.http.put<HttpResponse<any>>("/api/users/changePassword/"+userId,changePasswordReq, queryParams);
+  }
 }
