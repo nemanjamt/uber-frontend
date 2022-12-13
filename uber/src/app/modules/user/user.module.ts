@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PhotoModule } from '../photo/photo.module';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -19,6 +20,7 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    SharedModule,
     PhotoModule,
     RouterModule.forChild(userRoutes),
   ]
