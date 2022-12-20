@@ -1,0 +1,53 @@
+<section class="h-100 h-custom"  >
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-200">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card rounded-3">
+            <div class="row">
+                <div [formGroup]="form" class="card-body p-4 p-md-5 " >
+                    <div class="login">
+                        <div class="col-md-3 mb-4">
+                            <input type="text" formControlName="username" placeholder="username">
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <input type="password" formControlName="password" placeholder="password">
+                        </div>
+                        <div class="col-md-10 fg-pw ">
+                            <a href="">forgot password?</a>
+                        </div>
+                        <div *ngIf="errMessage" class="text-danger err-mes">
+                            {{errMessage}}
+                        </div>
+                        <div class="col-md-3 mb-3 ">
+                            <button class="btn btn-success" (click)="submit()" [disabled]="form.invalid">signup</button>
+                        </div>
+
+                        <!-- <div >
+                            <a href="{{ googleURL }}">
+                                <button class="loginBtn loginBtn--google">
+                                    Login with Google
+                                  </button>
+                            </a>
+                            <br>
+                            <a href="{{ facebookURL }}">
+                                <button class="loginBtn loginBtn--facebook">
+                                    Login with Facebook
+                                  </button>
+                            </a>
+                        </div> -->
+                    </div>
+                    
+                   
+
+                    
+                   
+    
+        
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+</div>
+</section>
