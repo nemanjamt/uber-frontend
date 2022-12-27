@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { UserData } from '../types/UserData';
 
@@ -18,6 +19,17 @@ export class UserService {
       observe: "response"
     };
     return this.http.get<HttpResponse<UserData>>("/api/users/"+id, queryParams);
+  }
+
+  getCurrentlyLoggedId():number{
+    const item = localStorage.getItem("user");
+
+    if (item) {
+      const jwt: JwtHelperService = new JwtHelperService();
+      let id = jwt.decodeToken(item).id;
+      return id;
+    }
+    return -1;
   }
 
   changeUserData(userData:UserData):Observable<HttpResponse<UserData>>{

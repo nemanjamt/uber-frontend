@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { PhotoService } from 'src/app/modules/photo/services/photo.service';
 import { UserService } from '../../services/user.service';
 import { UserData } from '../../types/UserData';
@@ -20,7 +21,7 @@ export class ProfileComponent implements OnInit {
   constructor(private fb:FormBuilder,public router:Router, private userService:UserService, private photoService:PhotoService) { 
     
     this.image = "./../../../../../../../assets/default-profile-pic.png";
-    
+    this.findUser();
     this.initialize();
     this.createForm();
   }
@@ -37,7 +38,15 @@ export class ProfileComponent implements OnInit {
   }
 
  
-  
+  findUser(){
+    const jwt: JwtHelperService = new JwtHelperService();
+    const token = localStorage.getItem("user");
+    if(!token){
+      return;
+    }
+    const info = jwt.decodeToken(token);
+    this.userData.id = info.id;
+  }
 
   isChanged(){
     return this.userData.name === this.dataForm.value.name && this.userData.lastName === this.dataForm.value.lastName
@@ -70,7 +79,7 @@ export class ProfileComponent implements OnInit {
   
   initialize(){
     console.log("STEFAN");
-    this.userService.getUserById(1).subscribe(res =>{
+    this.userService.getUserById(this.userData.id).subscribe(res =>{
       this.userData = res.body as UserData;
       console.log(this.userData);
       this.dataForm = this.fb.group({

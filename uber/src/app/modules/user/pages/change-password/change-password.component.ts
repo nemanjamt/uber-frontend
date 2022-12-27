@@ -29,7 +29,7 @@ export class ChangePasswordComponent implements OnInit {
       return;
     }
     let changePasswordReq = {"newPassword":this.passwordForm.value.newPassword};
-    this.userService.changePassword(changePasswordReq,1).subscribe(
+    this.userService.changePassword(changePasswordReq,this.userService.getCurrentlyLoggedId()).subscribe(
       {
         next: (res) => {
           this.badPassword=false;
