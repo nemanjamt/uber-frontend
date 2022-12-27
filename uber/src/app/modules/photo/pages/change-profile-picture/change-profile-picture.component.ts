@@ -47,6 +47,8 @@ export class ChangeProfilePictureComponent implements OnInit {
   }
 
 
+  
+
   imageUploadAction() {    
     if(this.uploadedImage == undefined){
       return;
@@ -55,11 +57,10 @@ export class ChangeProfilePictureComponent implements OnInit {
     imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
   
 
-    this.photoService.changeProfilePicture(1,imageFormData).subscribe(res =>{
+    this.photoService.changeProfilePicture(this.userService.getCurrentlyLoggedId(),imageFormData).subscribe(res =>{
       console.log("Promjenjena profilna slika?");
       this.router.navigate(['/user/profile']);
     });
     
   }
-
 }

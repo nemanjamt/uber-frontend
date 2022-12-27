@@ -20,14 +20,14 @@ export class LoginComponent implements OnInit {
     });
    }
 
-  //  googleURL:string = "http://localhost:8080/oauth2/authorization/google?redirect_uri=http://localhost:4200/auth/login";
-  //  facebookURL:string = "http://localhost:8080/oauth2/authorization/facebook?redirect_uri=http://localhost:4200/auth/login";
- 
+   googleURL:string = "http://localhost:8080/oauth2/authorization/google?redirect_uri=http://localhost:4200/auth/login";
+   facebookURL:string = "http://localhost:8080/oauth2/authorization/facebook?redirect_uri=http://localhost:4200/auth/login";
+
   ngOnInit(): void {
     const token : string = this.route.snapshot.queryParamMap.get('token') as string;
     const error : string = this.route.snapshot.queryParamMap.get('error') as string;
     if(token){
-      
+
       localStorage.setItem("user",JSON.stringify(token));
       this.router.navigate(["/user/profile"]);
     }
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit(){
+
     this.errMessage = undefined;
     const auth: Login = {
       username: this.form.value.username,
@@ -47,12 +48,12 @@ export class LoginComponent implements OnInit {
       {
         next: (res) => {
           localStorage.setItem("user",JSON.stringify(res));
-          this.router.navigate(["/user/profile"]); 
+          this.router.navigate(["/user/profile"]);
+
         },
 
         error: (err) => { this.errMessage = "wrong username/password";}
       }
     );
   }
-
 }
