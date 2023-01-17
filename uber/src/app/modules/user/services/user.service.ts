@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
+import { DataChangeRequest } from '../types/dataChangeRequest';
 import { UserData } from '../types/UserData';
 
 @Injectable({
@@ -48,5 +49,63 @@ export class UserService {
       observe: "response"
     };
     return this.http.put<HttpResponse<any>>("/api/users/changePassword/"+userId,changePasswordReq, queryParams);
+  }
+
+  createDriverDataChangeRequest(userData:UserData):Observable<HttpResponse<UserData>>{
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    
+    return this.http.post<HttpResponse<UserData>>("/api/driver/dataChangeRequest/"+userData.id,userData, queryParams);
+  }
+
+
+  getDriverDataChangeRequest(driverId:number):Observable<HttpResponse<DataChangeRequest>>{
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    
+    return this.http.get<HttpResponse<DataChangeRequest>>("/api/driver/dataChangeRequest/"+driverId, queryParams);
+  }
+
+
+  changeDriverDataChangeRequest(request:DataChangeRequest){
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    return this.http.put<HttpResponse<UserData>>("/api/driver/dataChangeRequest/"+request.id,request, queryParams);
+  }
+
+  getAllDriverDataChangeRequest():Observable<HttpResponse<DataChangeRequest[]>>{
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    return this.http.get<HttpResponse<DataChangeRequest[]>>("/api/driver/dataChangeRequests", queryParams);
+  }
+
+  approveRequest(id:number){
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    return this.http.put("/api/driver/approveDataChangeRequest/"+id, queryParams);
+  }
+
+  rejectRequest(id:number){
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    return this.http.put("/api/driver/rejectDataChangeRequest/"+id, queryParams);
   }
 }

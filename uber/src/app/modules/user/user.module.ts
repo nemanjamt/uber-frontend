@@ -8,14 +8,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PhotoModule } from '../photo/photo.module';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { SharedModule } from '../shared/shared.module';
+import { DriverDataChangeRequestComponent } from './pages/driver-data-change-request/driver-data-change-request.component';
+import { AllDataChangeRequestsComponent } from './pages/all-data-change-requests/all-data-change-requests.component';
 
 
 
 @NgModule({
   declarations: [
-    FormUserDataComponent,
     ProfileComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    FormUserDataComponent,
+    DriverDataChangeRequestComponent,
+    AllDataChangeRequestsComponent
   ],
   imports: [
     CommonModule,

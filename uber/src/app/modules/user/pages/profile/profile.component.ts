@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { PhotoService } from 'src/app/modules/photo/services/photo.service';
 import { UserService } from '../../services/user.service';
 import { UserData } from '../../types/UserData';
@@ -18,9 +19,9 @@ export class ProfileComponent implements OnInit {
   errMessage ?: string;
   image ?:string;
   isDriver!: boolean;
-  constructor(private fb:FormBuilder,public router:Router, private userService:UserService, private photoService:PhotoService) { 
+  constructor(private fb:FormBuilder,public router:Router, private userService:UserService, private photoService:PhotoService, private authService: AuthService) { 
     
-    this.image = "./../../../../../../../assets/default-profile-pic.png";
+    this.isDriver = authService.isDriver();
     this.findUser();
     this.initialize();
     this.createForm();
@@ -73,12 +74,28 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  
+  onDriverSubmit(){
+    let changedUserData:UserData = {id:this.userData.id, name:this.dataForm.value.name, lastName:this.dataForm.value.lastName,
+      email:this.dataForm.value.email,address:this.dataForm.value.address, username:this.dataForm.value.username, phone:this.dataForm.value.phone}
+    console.log(changedUserData);
+    console.log(":)");
+      this.userService.createDriverDataChangeRequest(changedUserData).subscribe(
+        {next:res =>{
+          this.errMessage = undefined;
+          //ubaciti redirect na stranicu za prikaz zahtjeva za izmjenu podataka
+          this.router.navigate(['/user/driver-data-change-requests']);
+          // this.initialize();
+          
+        },
+        error:(err) =>{this.errMessage = err.error; }
+      }
+        );
+  }
 
 
   
   initialize(){
-    console.log("STEFAN");
+    
     this.userService.getUserById(this.userData.id).subscribe(res =>{
       this.userData = res.body as UserData;
       console.log(this.userData);
@@ -105,5 +122,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
 
 }
