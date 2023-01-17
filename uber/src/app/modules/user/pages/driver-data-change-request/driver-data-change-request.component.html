@@ -1,0 +1,20 @@
+<section class="h-100 h-custom"  >
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card rounded-3">
+            <div *ngIf="dataChangeRequest.id == -1">
+              There is no data change request
+            </div>
+            <div *ngIf="dataChangeRequest.id != -1" class="card-body p-4 p-md-5" [formGroup]="dataForm">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Data change request</h3>
+                <app-form-user-data [dataForm]="dataForm"></app-form-user-data>
+               <div>
+                    <button   class="btn btn-success btn-lg mb-1" (click)="onSubmit()" [disabled]="isChanged() || dataForm.invalid">save changes</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
