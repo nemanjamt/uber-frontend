@@ -6,6 +6,8 @@ import { routes } from './auth.routes';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { ConfirmRegistrationComponent } from './pages/confirm-registration/confirm-registration.component';
+import { ForgottenPasswordComponent } from './pages/forgotten-password/forgotten-password.component';
+import { CreateNewPasswordComponent } from './pages/create-new-password/create-new-password.component';
 
 
 
@@ -13,7 +15,9 @@ import { ConfirmRegistrationComponent } from './pages/confirm-registration/confi
   declarations: [
     LoginComponent,
     RegistrationComponent,
-    ConfirmRegistrationComponent
+    ConfirmRegistrationComponent,
+    ForgottenPasswordComponent,
+    CreateNewPasswordComponent
   ],
   imports: [
     CommonModule,
