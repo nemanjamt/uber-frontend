@@ -13,14 +13,17 @@
                             <input type="password" formControlName="password" placeholder="password">
                         </div>
                         <div class="col-md-10 fg-pw ">
-                            <a href="">forgot password?</a>
+                            <a [routerLink]="['/auth/forgotten-password']">forgot password?</a>
                         </div>
                         <div *ngIf="errMessage" class="text-danger err-mes">
                             {{errMessage}}
                         </div>
-                        <div class="col-md-3 mb-3 ">
-                            <button class="btn btn-success" (click)="submit()" [disabled]="form.invalid">signup</button>
+                        <div >
+                            <button class="btn btn-success" (click)="submit()" [disabled]="form.invalid">sign in</button>
+                            <a class="btn btn-success" style="margin-left:10px" [routerLink]="['/auth/registration']">sign up</a>
                         </div>
+                        
+                        
 
                         <div >
                             <a href="{{ googleURL }}">

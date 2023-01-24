@@ -14,6 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(auth: Login):Observable<HttpResponse<Token>>{
+
     return this.http.post<HttpResponse<Token>>("api/auth/login", auth, {
       headers: this.headers,
       responseType: "json",
@@ -54,4 +55,25 @@ export class AuthService {
     }
     return false;
   }
+
+  isClient():boolean{
+    let token = localStorage.getItem("user");
+    if(token){
+      const jwt: JwtHelperService = new JwtHelperService();
+      const info = jwt.decodeToken(token);
+      return info.role === 'ROLE_CLIENT';
+    }
+    return false;
+  }
+
+  isAdmin():boolean{
+    let token = localStorage.getItem("user");
+    if(token){
+      const jwt: JwtHelperService = new JwtHelperService();
+      const info = jwt.decodeToken(token);
+      return info.role === 'ROLE_ADMIN';
+    }
+    return false;
+  }
+
 }

@@ -1,0 +1,48 @@
+
+<div align="center">
+    <div *ngIf="successConfirm == undefined">
+        <div id="Card" class="Animated FadeIn">
+                
+            <div id="Lower-Side">
+                <p id="Message">
+                    NE POSTOJI TOKEN
+                    
+                </p>
+                <a [routerLink]="['/auth/registration']" id="ContBtn">REGISTRUJ SE</a>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="successConfirm">
+    
+        <div  >
+            <div id="Card" class="Animated FadeIn">
+                
+                <div id="Lower-Side">
+                    <p id="Message">
+                        USPJESNO STE POTVRDILI REGISTRACIJU
+                    </p>
+                    <a [routerLink]="['/auth/login']"  id="ContBtn">PRIJAVITE SE</a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    <div *ngIf="successConfirm == false">
+        <div  >
+            <div id="Card" class="Animated FadeIn">
+                
+                <div id="Lower-Side">
+                    <p id="Message">
+                        GRESKA PRILIKOM POTVRDE REGISTRACIJE.
+                        
+                    </p>
+                    <a [routerLink]="['/auth/registration']" id="ContBtn">REGISTRUJ SE</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
