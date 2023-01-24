@@ -1,0 +1,259 @@
+<section class="h-100 h-custom"  >
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card rounded-3">
+            <div class="card-body p-4 p-md-5" [formGroup]="registrationForm">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration</h3>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <label >name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <input type="text" id="name" name="name" formControlName="name">
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['name'].touched &&
+                                registrationForm.controls['name'].errors?.['required']
+                                "
+                            >
+                             name is required</small>
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['name'].touched &&
+                                registrationForm.controls['name'].errors?.['minlength']
+                                "
+                            >
+                            name must have at least 2 character </small>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <label>last name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <input type="text" id="lastName" name="lastName" formControlName="lastName">
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['lastName'].touched &&
+                                registrationForm.controls['lastName'].errors?.['required']
+                                "
+                            >
+                            last name is required</small>
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['lastName'].touched &&
+                                registrationForm.controls['lastName'].errors?.['minlength']
+                                "
+                            >
+                            last name must have at least 2 character </small>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <label>username</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <input type="text" id="username" name="username" formControlName="username">
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['username'].touched &&
+                                registrationForm.controls['username'].errors?.['required']
+                                "
+                            >
+                            username is required</small>
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['username'].touched &&
+                                registrationForm.controls['username'].errors?.['minlength']
+                                "
+                            >
+                            username must have at least 6 character </small>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <label>email</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <input type="text"  id="email" name="email" formControlName="email" >
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['email'].touched &&
+                                registrationForm.controls['email'].errors?.['required']
+                                "
+                            >
+                            email is required</small>
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['email'].touched &&
+                                registrationForm.controls['email'].errors?.['email']
+                                "
+                            >
+                            email is incorrect </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <label >city</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <input type="text" id="city" name="city" formControlName="city">
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['city'].touched &&
+                                registrationForm.controls['city'].errors?.['required']
+                                "
+                            >
+                             city is required</small>
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['city'].touched &&
+                                registrationForm.controls['city'].errors?.['minlength']
+                                "
+                            >
+                            city must have at least 2 character </small>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <label >phone number</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <input type="text" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber">
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['phoneNumber'].touched &&
+                                registrationForm.controls['phoneNumber'].errors?.['required']
+                                "
+                            >
+                            phone number is required</small>
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['phoneNumber'].touched &&
+                                registrationForm.controls['phoneNumber'].errors?.['minlength']
+                                "
+                            >
+                            phone number must have at least 8 character </small>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <label>password</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <input type="password" id="pw" name="password" formControlName="password" >
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['password'].touched &&
+                                registrationForm.controls['password'].errors?.['required']
+                                "
+                            >
+                            password is required</small>
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['password'].touched &&
+                                registrationForm.controls['password'].errors?.['minlength']
+                                "
+                            >
+                            password must have at least 10 character </small>
+                           
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <label>confirm password</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div>
+                            <input type="password" id="pwConfirm" name="passwordConfirm" formControlName="pwConfirm">
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['pwConfirm'].touched &&
+                                registrationForm.controls['pwConfirm'].errors?.['required']
+                                "
+                            >
+                            password confirmation is required</small>
+                            <small
+                                class="text-danger"
+                                *ngIf="
+                                registrationForm.controls['pwConfirm'].touched &&
+                                registrationForm.controls['pwConfirm'].errors?.['confirmedValidator']
+                                "
+                            >
+                            passwords not equals</small>
+                        </div>
+                        
+                    </div>
+                </div>
+  
+               <br>
+                <div *ngIf="badMessage" style="color:red">
+                    {{badMessage}}
+                </div>
+                <div *ngIf="successMessage" style="color:green">
+                    {{successMessage}}
+                </div>
+               <div style="text-align: center; ">
+                <button  class="btn btn-success btn-lg mb-1" (click)="registrate()" [disabled]="registrationForm.invalid">registrate</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

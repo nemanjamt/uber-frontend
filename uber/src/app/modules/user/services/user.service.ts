@@ -108,4 +108,22 @@ export class UserService {
     };
     return this.http.put("/api/driver/rejectDataChangeRequest/"+id, queryParams);
   }
+
+  confirmRegistration(token:string):Observable<HttpResponse<any>>{
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    return this.http.put<HttpResponse<any>>("/api/client/confirm/"+token, queryParams);
+  }
+
+  clientRegistration(request:any):Observable<HttpResponse<any>>{
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    return this.http.post<HttpResponse<any>>("/api/client",request, queryParams);
+  }
 }
