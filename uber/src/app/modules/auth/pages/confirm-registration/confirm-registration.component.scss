@@ -1,0 +1,73 @@
+Body {
+    Background: #1488EA;
+}
+#Card {
+    Position: Relative;
+    Top: 110px;
+    Width: 320px;
+    Display: Block;
+    Margin: Auto;
+    Text-Align: Center;
+    Font-Family: "Source Sans Pro", Sans-Serif;
+}
+
+#Upper-Side {
+    Padding: 2em;
+    Background-Color: #8BC34A;
+    Display: Block;
+    Color: #Fff;
+    Border-Top-Right-Radius: 8px;
+    Border-Top-Left-Radius: 8px;
+}
+#Checkmark {
+    Font-Weight: Lighter;
+    Fill: #Fff;
+    Margin: -3.5em Auto Auto 20px;
+}
+#Status {
+    Font-Weight: Lighter;
+    Text-Transform: Uppercase;
+    Letter-Spacing: 2px;
+    Font-Size: 1em;
+    Margin-Top: -0.2em;
+    Margin-Bottom: 0;
+}
+#Lower-Side {
+    Padding: 2em 2em 5em 2em;
+    Background: #Fff;
+    Display: Block;
+    Border-Bottom-Right-Radius: 8px;
+    Border-Bottom-Left-Radius: 8px;
+}
+
+#Message {
+    Margin-Top: -0.5em;
+    Color: #757575;
+    Letter-Spacing: 1px;
+}
+#ContBtn {
+    Position: Relative;
+    Top: 1.5em;
+    Text-Decoration: None;
+    Background: #8bc34a;
+    Color: #Fff;
+    Margin: Auto;
+    Padding: 0.8em 3em;
+    -Webkit-Box-Shadow: 0px 15px 30px Rgba(50, 50, 50, 0.21);
+    -Moz-Box-Shadow: 0px 15px 30px Rgba(50, 50, 50, 0.21);
+    Box-Shadow: 0px 15px 30px Rgba(50, 50, 50, 0.21);
+    Border-Radius: 25px;
+    -Webkit-Transition: All 0.4s Ease;
+    -Moz-Transition: All 0.4s Ease;
+    -O-Transition: All 0.4s Ease;
+    Transition: All 0.4s Ease;
+}
+#ContBtn:hover {
+    -Webkit-Box-Shadow: 0px 15px 30px Rgba(60, 60, 60, 0.4);
+    -Moz-Box-Shadow: 0px 15px 30px Rgba(60, 60, 60, 0.4);
+    Box-Shadow: 0px 15px 30px Rgba(60, 60, 60, 0.4);
+    -Webkit-Transition: All 0.4s Ease;
+    -Moz-Transition: All 0.4s Ease;
+    -O-Transition: All 0.4s Ease;
+    Transition: All 0.4s Ease;
+}

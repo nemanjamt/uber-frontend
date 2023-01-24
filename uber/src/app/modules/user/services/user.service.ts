@@ -126,4 +126,22 @@ export class UserService {
     };
     return this.http.post<HttpResponse<any>>("/api/client",request, queryParams);
   }
+
+  forgotPassword(username:string):Observable<HttpResponse<any>>{
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    return this.http.put<HttpResponse<any>>("/api/users/forgotPassword/"+username, queryParams);
+  }
+
+  resetPassword(token:string, newPassword:any):Observable<HttpResponse<any>>{
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    return this.http.put<HttpResponse<any>>("/api/users/resetPassword/"+token,newPassword, queryParams);
+  }
 }
