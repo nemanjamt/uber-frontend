@@ -59,7 +59,7 @@ export class ChangeProfilePictureComponent implements OnInit {
 
     this.photoService.changeProfilePicture(this.userService.getCurrentlyLoggedId(),imageFormData).subscribe(res =>{
       console.log("Promjenjena profilna slika?");
-      this.router.navigate(['/user/profile']);
+      this.router.navigate(['/uber/user/profile']);
     });
     
   }

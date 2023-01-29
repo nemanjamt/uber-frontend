@@ -83,7 +83,7 @@ export class ProfileComponent implements OnInit {
         {next:res =>{
           this.errMessage = undefined;
           //ubaciti redirect na stranicu za prikaz zahtjeva za izmjenu podataka
-          this.router.navigate(['/user/driver-data-change-requests']);
+          this.router.navigate(['/uber/user/driver-data-change-requests']);
           // this.initialize();
           
         },

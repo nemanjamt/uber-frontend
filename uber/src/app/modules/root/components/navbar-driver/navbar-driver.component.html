@@ -1,1 +1,33 @@
-<p>navbar-driver works!</p>
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/uber/chat/user-chat']">Live support</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/uber/report']">Reports</a>
+  </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/uber/user/driver-data-change-requests']">Requests</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/uber/ride/history-review']">Ride history</a>
+</li>
+
+
+    
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="./../../../../../assets/default-profile-pic.png" class="rounded-circle" height="25">
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" [routerLink]="['/uber/user/profile']">profile</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/uber/user/change-profile-picture']">change profile picture</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/uber/user/change-password']">change password</a></li>
+        <li><div class="dropdown-item">
+          <label for="toggle" style="margin-right: 10px;"> active</label>
+          <input type="checkbox" id="toggle" [(ngModel)]="isActive" (change)="onActiveChange()">
+        </div></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" (click)="logout()">log out</a></li>
+      </ul>
+  </li>
+</ul>

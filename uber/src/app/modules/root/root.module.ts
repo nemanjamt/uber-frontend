@@ -8,6 +8,8 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { RouterModule } from '@angular/router';
 import { routes } from './root.routes';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -18,11 +20,13 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     NavbarDriverComponent,
     RootLayoutComponent,
     NotFoundPageComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
     RouterModule.forChild(routes)
   ]
 })
