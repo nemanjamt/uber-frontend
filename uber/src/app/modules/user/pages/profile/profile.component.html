@@ -20,7 +20,7 @@
              
               
              <div>
-                  <a [routerLink]="['/user/change-password']" class="password-link">change password</a>
+                  <a [routerLink]="['/uber/user/change-password']" class="password-link">change password</a>
                   <button  *ngIf="!isDriver" class="btn btn-success btn-lg mb-1" (click)="onSubmit()" [disabled]="isChanged() || dataForm.invalid">save changes</button>
                   <button  *ngIf="isDriver" class="btn btn-success btn-lg mb-1" (click)="onDriverSubmit()" [disabled]="isChanged() || dataForm.invalid">submit a request</button>
               </div>

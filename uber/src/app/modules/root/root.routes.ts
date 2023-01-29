@@ -1,9 +1,16 @@
 import { Routes } from "@angular/router";
+import { LoginGuard } from "../auth/guards/login/login.guard";
 import { RootLayoutComponent } from "./pages/root-layout/root-layout.component";
+import { WelcomeComponent } from "./pages/welcome/welcome.component";
 
 export const routes: Routes = [
+  {
+    path:"",
+    component:WelcomeComponent,
+    canActivate:[LoginGuard]
+  },
     {
-        path: "",
+        path: "uber",
         component: RootLayoutComponent,
         children:[
           {
@@ -17,6 +24,11 @@ export const routes: Routes = [
               import("./../auth/auth.module").then((m) => m.AuthModule),
             
           },
+          {
+            path:"ride",
+            loadChildren:() =>
+            import("./../ride/ride.module").then((m) => m.RideModule),
+          }
           
         ]
       }
