@@ -33,6 +33,32 @@ export class AuthService {
     return true;
   }
 
+  getCurrentlyLoggedId():number{
+    const item = localStorage.getItem("user");
+
+    if (item) {
+      const jwt: JwtHelperService = new JwtHelperService();
+      let id = jwt.decodeToken(item).id;
+      return id;
+    }
+    return -1;
+  }
+  
+  deactivateDriver():Observable<HttpResponse<any>>{
+
+    return this.http.put<HttpResponse<any>>("api/driver/deactivate/"+this.getCurrentlyLoggedId(), {
+      headers: this.headers,
+      responseType: "json",
+    });
+  }
+
+  activateDriver(){
+    return this.http.put<HttpResponse<any>>("api/driver/activate/"+this.getCurrentlyLoggedId(), {
+      headers: this.headers,
+      responseType: "json",
+    });
+  }
+
   // getCurrentLogged(){
   //   const jwt: JwtHelperService = new JwtHelperService();
   //   const token = localStorage.getItem("user");

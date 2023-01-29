@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     if(token){
 
       localStorage.setItem("user",JSON.stringify(token));
-      this.router.navigate(["/user/profile"]);
+      this.router.navigate(["/uber/user/profile"]);
     }
     else if(error){
         this.errMessage = error;
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       {
         next: (res) => {
           localStorage.setItem("user",JSON.stringify(res));
-          this.router.navigate(["/user/profile"]);
+          this.router.navigate(["/uber/user/profile"]);
 
         },
 

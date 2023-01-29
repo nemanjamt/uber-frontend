@@ -1,0 +1,41 @@
+<div align="center" style="margin-top: 120px;">
+    <h2>RIDE HISTORY</h2>
+    <div *ngIf="authService.isAdmin()" style="padding: 30px;">
+        <input type="text"  style="width:12%;margin-right: 10px;" [(ngModel)] = "username" placeholder="input username">
+        <button class="btn btn-primary btn-inline" (click)="searchUserRides()" >search user rides</button>
+    </div>
+    
+    
+    
+
+
+
+    <table class="table " cellspacing="0"  style="width: 70%; margin-top: 20px;" >
+        <thead class="thead-dark">
+          <tr>
+            
+            <th scope="col" (click)="sortTable('name')">route<i *ngIf="sortBy=='name' && sortOrder=='asc'">&#9650;</i>   
+              <i *ngIf="sortBy=='name' && sortOrder=='desc'">&#9660;</i></th>
+            <th scope="col"(click)="sortTable('price')">price <i *ngIf="sortBy=='price' && sortOrder=='asc'">&#9650;</i>   
+              <i *ngIf="sortBy=='price' && sortOrder=='desc'">&#9660;</i>
+            </th>
+            <th scope="col" (click)="sortTable('startDate')">start date<i *ngIf="sortBy=='startDate' && sortOrder=='asc'">&#9650;</i>   
+              <i *ngIf="sortBy=='startDate' && sortOrder=='desc'">&#9660;</i></th>
+            <th scope="col" (click)="sortTable('endDate')">end date<i *ngIf="sortBy=='endDate' && sortOrder=='asc'">&#9650;</i>   
+              <i *ngIf="sortBy=='endDate' && sortOrder=='desc'">&#9660;</i></th>
+            <th scope="col">details</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ride of rides">
+                <td>{{ride.name}}</td>
+                <td>{{ride.price}}</td>
+                <td>{{formatDate(ride.startDate)}}</td>
+                <td>{{formatDate(ride.endDate)}}</td>
+                <td><a class="btn btn-primary" [routerLink]="['/uber/ride/detailed-ride']" [queryParams]="{ rideId: ride.id }">find more</a></td>
+
+            </tr>
+          
+        </tbody>
+      </table>
+</div>

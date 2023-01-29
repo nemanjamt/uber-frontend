@@ -16,7 +16,7 @@ export class RoleGuard implements CanActivate {
     const jwt: JwtHelperService = new JwtHelperService();
 
     if (!token) {
-      this.router.navigate(["/auth/login"]);
+      this.router.navigate(["/uber/auth/login"]);
       return false;
     }
     console.log("USLO");
@@ -28,7 +28,7 @@ export class RoleGuard implements CanActivate {
     console.log(roles);
     console.log(info.role);
     if (roles.indexOf(info.role) === -1) {
-      this.router.navigate(["/forbidden"]);
+      this.router.navigate(["/uber/forbidden"]);
       return false;
     }
     return true;
