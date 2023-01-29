@@ -1,0 +1,76 @@
+<div style="margin-top: 50px;">
+    <div style="display: flex; justify-content: center;">
+        <div style="margin-right: 160px;">
+          <input type="date" min="{{minDate}}" max="{{maxDate}}" style="cursor: pointer;" #startDate (change)="onDateChange(startDate.value)">
+        </div>
+        <div>
+          <input type="date" #endDate min="{{minDate}}" max="{{maxDate}}" style="cursor: pointer;" (change)="onEndDateChange(endDate.value)">
+        </div>
+    </div>
+    <div *ngIf="authService.isAdmin() && this.choosedStartDate && this.choosedEndDate" style="margin:50px;">
+      <input type="text" placeholder="input username" [(ngModel)]="username">
+      <button class="btn btn-primary" style="margin-left: 20px;" [disabled]="!username || username.length < 2" (click)="searchReportUser()"> search </button>
+      <p *ngIf="badUsername" style="color:red">user with specified username does not exists</p>
+    </div>
+    
+    <div *ngIf="choosedStartDate && choosedEndDate && !badUsername" class="charts-container" style="margin-top:20px">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [xaxis]="chartOptions.xaxis"
+          [title]="chartOptions.title"
+        ></apx-chart>
+      
+        <apx-chart
+          [series]="chartOptions2.series"
+          [chart]="chartOptions2.chart"
+          [xaxis]="chartOptions2.xaxis"
+          [title]="chartOptions2.title"
+        ></apx-chart>
+      
+        <apx-chart
+          [series]="chartOptions3.series"
+          [chart]="chartOptions3.chart"
+          [xaxis]="chartOptions3.xaxis"
+          [title]="chartOptions3.title"
+        ></apx-chart>
+      </div>
+      <div *ngIf="!choosedStartDate || !choosedEndDate" style="margin-top:60px" align="center">
+            <h5>CHOOSE DATE RANGE</h5>
+      </div>
+      
+
+      <div  *ngIf="rideSummaryReport && !badUsername" align="center" style="margin-top:20px">
+        <div class="card " style="width: 20%;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <h6 class="mb-0">total rides</h6>
+                <span class="text-secondary">{{rideSummaryReport.totalRides}}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <h6 class="mb-0">average rides</h6>
+                <span class="text-secondary">{{rideSummaryReport.averageRides}}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <h6 class="mb-0">total money</h6>
+                <span class="text-secondary">{{rideSummaryReport.totalMoney}} RSD</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <h6 class="mb-0">average money</h6>
+                <span class="text-secondary">{{rideSummaryReport.averageMoney}} RSD</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <h6 class="mb-0">total distance</h6>
+                <span class="text-secondary">{{rideSummaryReport.totalDistance}} km</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <h6 class="mb-0">average distance</h6>
+                <span class="text-secondary">{{rideSummaryReport.averageDistance}} km</span>
+              </li>
+            </ul>
+          </div>
+      </div>
+</div>
+
+
+

@@ -28,6 +28,11 @@ export const routes: Routes = [
             path:"ride",
             loadChildren:() =>
             import("./../ride/ride.module").then((m) => m.RideModule),
+          },
+          {
+            path:"report",
+            loadChildren: () =>
+              import("./../report/report.module").then((m) => m.ReportModule)
           }
           
         ]

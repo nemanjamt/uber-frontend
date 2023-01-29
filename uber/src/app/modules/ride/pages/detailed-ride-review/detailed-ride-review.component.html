@@ -20,6 +20,10 @@
     <div *ngIf="coordinates" class="grid-item left-div"   align="center">
       <div style="margin-top: 20px;">
         <app-ride-history-map [coordinates]="coordinates"></app-ride-history-map>
+        <div style="margin-top: 15px;" *ngIf="authService.isClient()">
+            <button class="btn btn-primary">order later</button>
+            <button class="btn btn-primary" style="margin-left: 5px;">order now</button>
+        </div>
       </div>
       
     </div>
