@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
     });
    }
 
-   googleURL:string = "http://localhost:8080/oauth2/authorization/google?redirect_uri=http://localhost:4200/auth/login";
-   facebookURL:string = "http://localhost:8080/oauth2/authorization/facebook?redirect_uri=http://localhost:4200/auth/login";
+   googleURL:string = "http://localhost:8080/oauth2/authorization/google?redirect_uri=http://localhost:4200/uber/auth/login";
+   facebookURL:string = "http://localhost:8080/oauth2/authorization/facebook?redirect_uri=http://localhost:4200/uber/auth/login";
 
   ngOnInit(): void {
     const token : string = this.route.snapshot.queryParamMap.get('token') as string;

@@ -7,6 +7,7 @@ import { RootLayoutComponent } from './pages/root-layout/root-layout.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './root.routes';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 
 
@@ -16,7 +17,8 @@ import { routes } from './root.routes';
     NavbarClientComponent,
     NavbarDriverComponent,
     RootLayoutComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    WelcomeComponent
   ],
   imports: [
     CommonModule,
