@@ -8,13 +8,17 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PhotoModule } from '../photo/photo.module';
 import { HistoryReviewComponent } from './pages/history-review/history-review.component';
+import { DetailedRideReviewComponent } from './pages/detailed-ride-review/detailed-ride-review.component';
+import { RideHistoryMapComponent } from './components/ride-history-map/ride-history-map.component';
 
 
 
 @NgModule({
   declarations: [
     UnregisterUserRideComponent,
-    HistoryReviewComponent
+    HistoryReviewComponent,
+    DetailedRideReviewComponent,
+    RideHistoryMapComponent
   ],
   imports: [
     CommonModule,

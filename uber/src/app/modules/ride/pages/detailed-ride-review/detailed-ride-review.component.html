@@ -1,0 +1,161 @@
+
+
+<!-- <div class="grid-container">
+    <div class="left-div" style="border: 1px solid red; height: 800px;"></div>
+    <div class="right-div-1" style="border: 1px solid yellow; height: 400px;">
+        <div class="card" style="width: 18rem; margin:10px;">
+            <img src="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png" class="card-img-top" alt="..."> 
+            <app-profile-picture  [image]="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png"></app-profile-picture> 
+            <div class="card-body">
+              <h5 class="card-title">Imenko Prezimenic</h5>
+              <p class="card-text">imenko@gmail.com</p>
+            </div>
+            
+          </div>
+    </div>
+    <div class="right-div-2" style="border: 1px solid green; height: 400px;"></div>
+  </div> -->
+
+  <div class="grid-container">
+    <div *ngIf="coordinates" class="grid-item left-div"   align="center">
+      <div style="margin-top: 20px;">
+        <app-ride-history-map [coordinates]="coordinates"></app-ride-history-map>
+      </div>
+      
+    </div>
+    <div class="grid-item right-div-1" >
+      <div>
+        <div *ngIf="!authService.isClient()" class=" p-3" align="right">
+          <h3 class="card-title" align="right" style="margin-bottom: 10px;">CLIENTS</h3>
+          <div *ngFor="let client of rideClients" class="card mb-3" style="max-width: 540px; height: 100px; width: 50%;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img [src]="client.photo" class="img-fluid rounded-start " style="height: 100px;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{client.name}} {{client.lastName}}</h5>
+                  <p class="card-text">{{client.email}}</p>
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+    <div class="grid-item right-div-2" >
+      <div>
+        <div *ngIf="rideDriver && !authService.isDriver()" class=" p-3" align="right">
+          <h3 class="card-title" align="right" style="margin-bottom: 10px;">DRIVER</h3>
+          <div  class="card mb-3" style="max-width: 540px; height: 100px; width: 50%;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img [src]="rideDriver.photo" class="img-fluid rounded-start " style="height: 100px;">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{rideDriver.name}} {{rideDriver.lastName}}</h5>
+                  <p class="card-text">{{rideDriver.email}}</p>
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="grid-item right-div-3" >
+      <div >
+    
+        <div class="p-3" style="margin-top:60px;" >
+            
+            <h3 class="card-title" >REVIEWS</h3>
+            
+            <div *ngFor="let review of reviews" class="mt-5  justify-content-between ">
+                <h5 >{{review.client.name}} {{review.client.lastName}}</h5>
+                <div >
+                  <p class="card-text">{{review.comment}}</p>
+                  <ng-container *ngFor="let i of [0,1,2,3,4].slice(0,review.grade)">
+                    <i class="fa fa-star rating-color"></i>
+                  </ng-container>
+                  <ng-container *ngFor="let i of [0,1,2,3,4].slice(0,5-review.grade)">
+                    <i class="fa fa-star"></i>
+                  </ng-container>  
+                </div>
+                
+            </div>
+            
+            
+            
+        </div>
+
+        
+        
+    </div>
+
+    <div *ngIf="authService.isClient()">
+      
+      <div *ngIf="!isLeavedReview()" class="card rounded-3" style="width: 70%;">
+        <div class="card-body" [formGroup]="reviewForm">
+          <h3 >Leave review</h3>
+            <div class="row">
+                
+                <div class="col-md-3 mb-3">
+                    <div>
+                        
+                        <div  >
+                          <i  (click)="onStarClick(1)"  [ngClass]="choosedStar > 0 ? 'fa fa-star rating-color' : 'fa fa-star'" ></i>
+                          <i [ngClass]="choosedStar > 1 ? 'fa fa-star rating-color' : 'fa fa-star'" (click)="onStarClick(2)"></i>
+                          <i [ngClass]="choosedStar > 2 ? 'fa fa-star rating-color' : 'fa fa-star'" (click)="onStarClick(3)"></i>
+                          <i [ngClass]="choosedStar > 3 ? 'fa fa-star rating-color' : 'fa fa-star'" (click)="onStarClick(4)"></i>
+                          <i [ngClass]="choosedStar > 4 ? 'fa fa-star rating-color' : 'fa fa-star'" (click)="onStarClick(5)"></i>
+                        </div>
+                        <small
+                            class="text-danger"
+                            *ngIf="
+                            reviewForm.controls['grade'].touched &&
+                            reviewForm.controls['grade'].errors?.['min']
+                            "
+                        >
+                        grade is required</small>
+                        
+                    </div>
+                </div>
+            </div>
+            
+    
+            <div class="row">
+                
+                <div class="col-md-3 mb-3">
+                    <div>
+                        <input type="text" id="comment" name="comment" formControlName="comment">   
+                    </div>
+                </div>
+            </div>
+           
+            
+    
+           
+            
+           <div >
+            <button  class="btn btn-success  " (click)="createReview()" [disabled]="reviewForm.invalid">create review</button>
+            </div>
+            
+    
+          
+    
+        </div>
+      
+      </div>
+    </div>
+    
+     
+    </div>
+</div>
+
