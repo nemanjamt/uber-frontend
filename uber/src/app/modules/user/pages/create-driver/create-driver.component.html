@@ -1,0 +1,294 @@
+<div style="margin-top:40px;">
+
+    <section class="h-100 h-custom">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="card rounded-3">
+                        <div class="card-body p-4 p-md-5" [formGroup]="dataForm">
+
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Create driver</h3>
+
+                            <h5>Driver data</h5>
+                            <div [formGroup]="dataForm">
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <label>name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <input type="text" id="name" name="name" formControlName="name">
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['name'].touched &&
+                        dataForm.controls['name'].errors?.['required']
+                        ">
+                                                name is required</small>
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['name'].touched &&
+                        dataForm.controls['name'].errors?.['minlength']
+                        ">
+                                                name must have at least 2 character </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <label>last name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <input type="text" id="lastName" name="lastName" formControlName="lastName">
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['lastName'].touched &&
+                        dataForm.controls['lastName'].errors?.['required']
+                        ">
+                                                last name is required</small>
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['lastName'].touched &&
+                        dataForm.controls['lastName'].errors?.['minlength']
+                        ">
+                                                last name must have at least 2 character </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <label>email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <input type="text" id="email" name="email" formControlName="email"
+                                                >
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['email'].touched &&
+                        dataForm.controls['email'].errors?.['required']
+                        ">
+                                                email is required</small>
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['email'].touched &&
+                        dataForm.controls['email'].errors?.['email']
+                        ">
+                                                email is incorrect </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <label>username</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <input type="text" id="username" name="username" formControlName="username"
+                                                >
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['username'].touched &&
+                        dataForm.controls['username'].errors?.['required']
+                        ">
+                                                username is required</small>
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['username'].touched &&
+                        dataForm.controls['username'].errors?.['minlength']
+                        ">
+                                                username must have at least 2 character </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <label>phone</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <input type="text" id="phone" name="phone" formControlName="phone">
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['phone'].touched &&
+                        dataForm.controls['phone'].errors?.['required']
+                        ">
+                                                phone is required</small>
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['phone'].touched &&
+                        dataForm.controls['phone'].errors?.['minlength']
+                        ">
+                                                phone must have at least 2 character </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <label>address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <input type="text" id="address" name="address" formControlName="address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <label>password</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <input  
+                                                type="password" id="password" name="password" 
+                                                formControlName="password">
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['password'].touched &&
+                        dataForm.controls['password'].errors?.['required']
+                        ">
+                                                password is required</small>
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['password'].touched &&
+                        dataForm.controls['password'].errors?.['minlength']
+                        ">
+                                                password must have at least 10 character </small>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-top: 10px;;">
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <label>confirm password</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div>
+                                            <input 
+                                                type="password" id="confirmedPassword" name="username"
+                                                 formControlName="confirmedPassword">
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['confirmedPassword'].touched &&
+                        dataForm.controls['confirmedPassword'].errors?.['required']
+                        ">
+                                                confirm password is required</small>
+                                            <small class="text-danger" *ngIf="
+                        dataForm.controls['confirmedPassword'].touched &&
+                        dataForm.controls['confirmedPassword'].errors?.['minlength']
+                        ">
+                                                confirm password must have at least 8 character </small>
+
+                                            <small class="text-danger" *ngIf="
+                    dataForm.controls['confirmedPassword'].touched &&
+                    dataForm.controls['confirmedPassword'].errors?.['confirmedValidator']
+                    ">
+                                                passwords not equals</small>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+
+
+                            <h5>Vehicle data</h5>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <div>
+                                        <label>baby transport</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div style="display: flex;">
+                                        <input type="radio"  value="true" formControlName="babyTransport" > Yes<br>
+                                        <input type="radio"  value="false" formControlName="babyTransport" style="margin-left: 15px;"> No<br>
+
+                                        <!-- <input type="text" id="name" name="name" formControlName="name"> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <div>
+                                        <label>pet transport</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div style="display: flex;">
+                                        <input type="radio"  value="true" formControlName="petTransport" > Yes
+                                        <input type="radio"  value="false" formControlName="petTransport" style="margin-left: 15px;"> No<br>
+
+                                        <!-- <input type="text" id="name" name="name" formControlName="name"> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <div>
+                                        <label>capacity</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div style="display: flex;">
+                                        <input type="number"  min="0" max="5" formControlName="capacity" > 
+
+                                        <!-- <input type="text" id="name" name="name" formControlName="name"> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <div>
+                                        <label>type</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div style="display: flex;">
+                                        <select formControlName="vehicleTypeId">
+                                            <option *ngFor="let vehicleType of vehicleTypes" value="{{vehicleType.id}}">{{vehicleType.name}}</option>
+                                            
+                                          </select>
+                                          
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p *ngIf="successCreated" style="color:green">
+                                driver sucessful created
+                            </p>
+                            <p *ngIf="badCreated" style="color:red">
+                                unsuccessful creating driver
+                            </p>
+
+                            <div>
+
+                                <button class="btn btn-success btn-lg mb-1" (click)="onSubmit()"
+                                    [disabled]="dataForm.invalid">create driver</button>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

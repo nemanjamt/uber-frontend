@@ -10,6 +10,7 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { SharedModule } from '../shared/shared.module';
 import { DriverDataChangeRequestComponent } from './pages/driver-data-change-request/driver-data-change-request.component';
 import { AllDataChangeRequestsComponent } from './pages/all-data-change-requests/all-data-change-requests.component';
+import { CreateDriverComponent } from './pages/create-driver/create-driver.component';
 
 
 
@@ -19,7 +20,8 @@ import { AllDataChangeRequestsComponent } from './pages/all-data-change-requests
     ChangePasswordComponent,
     FormUserDataComponent,
     DriverDataChangeRequestComponent,
-    AllDataChangeRequestsComponent
+    AllDataChangeRequestsComponent,
+    CreateDriverComponent
   ],
   imports: [
     CommonModule,
