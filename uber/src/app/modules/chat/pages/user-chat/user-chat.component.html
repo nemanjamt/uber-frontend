@@ -1,0 +1,94 @@
+
+  <br><br><br>
+  <div class="container-fluid h-50">
+    <div class="row justify-content-center h-100">
+      
+      <div class="col-md-8 col-xl-6 chat">
+        <div class="card">
+          <div class="card-header msg_head">
+            <div class="d-flex bd-highlight">
+              <div class="img_cont">
+                <img src="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png" class="rounded-circle user_img">
+                <span class="online_icon"></span>
+              </div>
+              <div class="user_info">
+                <span>SUPPORT</span>
+                <p>{{this.messages.length}} Messages</p>
+              </div>
+              
+            </div>
+            
+            
+          </div>
+          <div class="card-body msg_card_body">
+
+
+            <!-- <div class="d-flex justify-content-start mb-4">
+              <div class="img_cont_msg">
+                <img src="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png" class="rounded-circle user_img_msg">
+              </div>
+              <div class="msg_cotainer">
+                Hi, how are you samim?
+                <span class="msg_time">8:40 AM, Today</span>
+              </div>
+            </div>
+
+
+            <div class="d-flex justify-content-end mb-4">
+              <div class="msg_cotainer_send">
+                Hi jassa i am good tnx how about you?
+                <span class="msg_time_send">8:55 AM, Today</span>
+              </div>
+              <div class="img_cont_msg">
+            <img src="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png" class="rounded-circle user_img_msg">
+              </div>
+            </div> -->
+
+
+            <div *ngFor="let m of messages" >
+              
+              <div *ngIf="m.senderId == senderId; else other">
+                <div class="d-flex justify-content-end mb-4">
+                  <div class="msg_cotainer_send">
+                    {{m.content}}
+                    <span class="msg_time_send">{{formatDate(m.time)}}</span>
+                  </div>
+                  <div class="img_cont_msg">
+                <img [src]="this.image" class="rounded-circle user_img_msg">
+                  </div>
+                </div>
+              </div>
+              <ng-template #other>
+                <div class="d-flex justify-content-start mb-4">
+                  <div class="img_cont_msg">
+                    <img src="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png" class="rounded-circle user_img_msg">
+                  </div>
+                  <div class="msg_cotainer">
+                   {{m.content}} 
+                    <span class="msg_time">{{formatDate(m.time)}}</span>
+                  </div>
+                </div>
+              </ng-template>
+              
+            </div>
+
+      
+            
+           
+            
+            
+          </div>
+          <div class="card-footer">
+            <div class="input-group">
+              
+              <textarea name="" class="form-control type_msg" [(ngModel)]="message" placeholder="Type your message..."></textarea>
+              <div class="input-group-append">
+                <button class="input-group-text send_btn" (click)="sendMessage()" [disabled]="!message"><span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
