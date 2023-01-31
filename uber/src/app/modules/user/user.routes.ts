@@ -2,6 +2,7 @@ import { Routes } from "@angular/router";
 import { RoleGuard } from "../auth/guards/role/role.guard";
 import { AllDataChangeRequestsComponent } from "./pages/all-data-change-requests/all-data-change-requests.component";
 import { ChangePasswordComponent } from "./pages/change-password/change-password.component";
+import { CreateDriverComponent } from "./pages/create-driver/create-driver.component";
 import { DriverDataChangeRequestComponent } from "./pages/driver-data-change-request/driver-data-change-request.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
 
@@ -36,7 +37,13 @@ export const userRoutes:Routes=[
         canActivate:[RoleGuard],
         data:{expectedRoles:"ROLE_DRIVER"}
     },
-    
+    {
+        path:"create-driver",
+        pathMatch:"full",
+        component:CreateDriverComponent,
+        canActivate:[RoleGuard],
+        data:{expectedRoles:"ROLE_ADMIN"}
+    },
     {
         path:"photo",
         loadChildren: () =>
