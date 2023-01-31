@@ -91,6 +91,24 @@ export class UserService {
     return this.http.get<HttpResponse<DataChangeRequest[]>>("/api/driver/dataChangeRequests", queryParams);
   }
 
+  findClients():Observable<HttpResponse<UserData[]>>{
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    return this.http.get<HttpResponse<UserData[]>>("/api/client/all", queryParams);
+  }
+
+  findDrivers():Observable<HttpResponse<UserData[]>>{
+    let queryParams = {};
+    queryParams = {
+      headers: this.headers,
+      observe: "response"
+    };
+    return this.http.get<HttpResponse<UserData[]>>("/api/driver/all", queryParams);
+  }
+
   approveRequest(id:number){
     let queryParams = {};
     queryParams = {

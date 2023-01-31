@@ -33,6 +33,11 @@ export const routes: Routes = [
             path:"report",
             loadChildren: () =>
               import("./../report/report.module").then((m) => m.ReportModule)
+          },
+          {
+            path:"chat",
+            loadChildren:()=>
+            import("../chat/chat.module").then((m) => m.ChatModule),
           }
           
         ]
